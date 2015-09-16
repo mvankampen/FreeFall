@@ -28,5 +28,6 @@ public class ControlePaneelZuid extends HBox {
         this.stopBtn = new Button("Stop");
         this.stopBtn.setOnAction(event -> this.balController.pleaseStop());
         this.resetBtn = new Button("Reset");
+        
     }
 }

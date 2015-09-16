@@ -4,6 +4,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class ValBewegingApp extends Application {
+	public BorderPane pane;
 
     /**
      * The main entry point for all JavaFX applications.
@@ -24,7 +25,7 @@ public class ValBewegingApp extends Application {
         ControlePaneelNoord noordpaneel = new ControlePaneelNoord();
         ValBewegingPaneel valBewegingPaneel = new ValBewegingPaneel(this, noordpaneel);
 
-        BorderPane pane = new BorderPane();
+        this.pane = new BorderPane();
         pane.setTop(noordpaneel);
         pane.setCenter(valBewegingPaneel);
 
@@ -35,7 +36,7 @@ public class ValBewegingApp extends Application {
 
     }
 
-    public static void ValBewegingApp(String[] args) {
+    public static void main(String[] args) {
         launch(args);
     }
 }
