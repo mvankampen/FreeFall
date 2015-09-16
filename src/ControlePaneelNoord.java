@@ -16,8 +16,8 @@ public class ControlePaneelNoord extends HBox {
     public ControlePaneelNoord() {
         this.labelBereikX = new Label("Bereik x:");
         this.labelBereikY = new Label("Bereik y:");
-        this.bereikXveld = new TextField();
-        this.bereikYveld = new TextField();
+        this.bereikXveld = new TextField("100");
+        this.bereikYveld = new TextField("100");
         setAlignment(Pos.CENTER);
         this.setSpacing(10);
         this.getChildren().addAll(labelBereikX,bereikXveld, labelBereikY, bereikYveld);
