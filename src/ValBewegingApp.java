@@ -2,7 +2,6 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import sun.nio.ch.sctp.SctpNet;
 
 public class ValBewegingApp extends Application {
 
