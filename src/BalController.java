@@ -1,3 +1,7 @@
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
@@ -8,6 +12,7 @@ public class BalController implements Runnable, MouseWheelListener {
     private ValBewegingPaneel valBewegingPaneel;
     private ControlePaneelNoord noordpaneel;
 
+    private Timeline animation;
     private boolean doorgaan_thread;
     private boolean doorgaan_wheel;
     private int dt;
@@ -20,6 +25,8 @@ public class BalController implements Runnable, MouseWheelListener {
         this.balView = balview;
         this.valBewegingPaneel = valBewegingPaneel;
         this.noordpaneel = noordpaneel;
+        this.animation = new Timeline(new KeyFrame(Duration.millis(100)));
+
     }
 
     /**
