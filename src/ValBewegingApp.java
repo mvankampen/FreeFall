@@ -1,10 +1,13 @@
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class ValBewegingApp extends Application {
 	public BorderPane pane;
+    public Group root;
 
     /**
      * The main entry point for all JavaFX applications.
@@ -24,7 +27,6 @@ public class ValBewegingApp extends Application {
     @Override public void start(Stage primaryStage) throws Exception {
         ControlePaneelNoord noordpaneel = new ControlePaneelNoord();
         ValBewegingPaneel valBewegingPaneel = new ValBewegingPaneel(this, noordpaneel);
-
         this.pane = new BorderPane();
         pane.setTop(noordpaneel);
         pane.setCenter(valBewegingPaneel);

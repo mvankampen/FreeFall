@@ -19,9 +19,7 @@ public class ValBewegingPaneel extends HBox {
         BalController controller = new BalController(bal, balview, this,
             noordpaneel); // idem maar nu aan het controller-object?
         ControlePaneelZuid zuidpaneel = new ControlePaneelZuid(bal, balview, controller);
-        this.getChildren().add(balview);
-        valBewegingApp.pane.setBottom(zuidpaneel);
-        this.getChildren().addAll(zuidpaneel ,canvas);
+        this.getChildren().addAll(balview,zuidpaneel ,canvas);
         
     }
     
