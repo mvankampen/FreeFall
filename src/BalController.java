@@ -13,7 +13,7 @@ public class BalController implements Runnable, MouseWheelListener {
     private ControlePaneelNoord noordpaneel;
 
     private Timeline animation;
-    private boolean doorgaan_thread;
+    private boolean doorgaan_thread = true;
     private boolean doorgaan_wheel;
     private int dt;
     private double valhoogte;
@@ -54,8 +54,8 @@ public class BalController implements Runnable, MouseWheelListener {
      * @see Thread#run()
      */
     @Override public void run() {
+
         while (doorgaan_thread) {
-            animation.play();
             if(this.bal.getY() != (this.valhoogte + 40)) {
                 this.bal.adjust(dt);
                 this.balView.adjustBal();
@@ -64,12 +64,15 @@ public class BalController implements Runnable, MouseWheelListener {
     }
 
     public void pleaseStart() {
-        if (draad != null) {
+
+        System.out.println("Soap");
+        /*if (draad != null) {
             return;
-        }
+        }*/
 
         this.noordpaneel.setDisable(true);
-        draad = new Thread();
+        draad = new Thread(this);
+        animation.play();
         draad.start();
 
     }
