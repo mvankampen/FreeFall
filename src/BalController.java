@@ -25,6 +25,9 @@ public class BalController implements Runnable, MouseWheelListener {
         this.balView = balview;
         this.valBewegingPaneel = valBewegingPaneel;
         this.noordpaneel = noordpaneel;
+        this.dt = this.noordpaneel.getDt();
+        this.valhoogte = this.noordpaneel.getYbereik();
+
         this.animation = new Timeline(new KeyFrame(Duration.millis(100)));
 
     }
@@ -55,7 +58,7 @@ public class BalController implements Runnable, MouseWheelListener {
     }
 
     public void pleaseStart() {
-
+        this.noordpaneel.setDisable(true);
     }
 
     public void pleaseStop() {

@@ -22,4 +22,20 @@ public class ControlePaneelNoord extends HBox {
         this.setSpacing(10);
         this.getChildren().addAll(labelBereikX,bereikXveld, labelBereikY, bereikYveld);
     }
+
+    public double getYbereik()
+    {
+        return Double.parseDouble(this.bereikYveld.getText());
+    }
+
+    public double getXbereik()
+    {
+        return Double.parseDouble(this.bereikXveld.getText());
+    }
+
+
+    public int getDt()
+    {
+        return 20;
+    }
 }

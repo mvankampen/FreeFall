@@ -12,8 +12,6 @@ public class ControlePaneelZuid extends HBox {
     private Button animatieBtn;
     @FXML
     private Button stopBtn;
-    @FXML
-    private Button resetBtn;
 
     private Bal bal;
     private BalView balView;
@@ -27,8 +25,7 @@ public class ControlePaneelZuid extends HBox {
         this.animatieBtn.setOnAction(event -> this.balController.pleaseStart());
         this.stopBtn = new Button("Stop");
         this.stopBtn.setOnAction(event -> this.balController.pleaseStop());
-        this.resetBtn = new Button("Reset");
         setAlignment(Pos.CENTER);
-        this.getChildren().addAll(animatieBtn,stopBtn, resetBtn);
+        this.getChildren().addAll(animatieBtn,stopBtn);
     }
 }
