@@ -12,8 +12,10 @@ public class Bal {
     private final double VALVERSNELLING = 9.81;
 
 
-    public Bal() {
+    public Bal(double x, double y, double radius) {
         this.kleur = Color.RED;
+        this.x = x;
+        this.y = y;
         reset();
     }
 
