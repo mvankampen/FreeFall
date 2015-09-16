@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 
-public class ValBewegingPaneel extends HBox implements MouseWheelListener {
+public class ValBewegingPaneel extends HBox {
     private int startX, startY;
     private int eindX, eindY;
     private final int PARTS = 12;
@@ -44,15 +44,5 @@ public class ValBewegingPaneel extends HBox implements MouseWheelListener {
         gc.setLineDashes(30);
         gc.strokeLine(startX, startY, eindX, startY);
 
-    }
-
-    /**
-     * Invoked when the mouse wheel is rotated.
-     *
-     * @param e
-     * @see MouseWheelEvent
-     */
-    @Override public void mouseWheelMoved(MouseWheelEvent e) {
-        //Gegevens in de box
     }
 }
