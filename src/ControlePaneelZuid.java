@@ -10,7 +10,7 @@ public class ControlePaneelZuid extends HBox {
     private BalController balController;
     private Button animatieBtn, stopBtn, resetBtn;
 
-    public SouthPane(BalController balController) {
+    public ControlePaneelZuid(BalController balController) {
         this.balController = balController;
         setAlignment(Pos.CENTER);
         this.animatieBtn = new Button("Animatie");

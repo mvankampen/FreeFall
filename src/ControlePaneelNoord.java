@@ -13,8 +13,7 @@ public class ControlePaneelNoord extends HBox {
     private TextField bereikXveld;
     private TextField bereikYveld;
 
-    public NorthPane(BalController balController) {
-        this.balController = balController;
+    public ControlePaneelNoord() {
         this.labelBereikX = new Label("Bereik x:");
         this.labelBereikY = new Label("Bereik y:");
         this.bereikXveld = new TextField();
@@ -22,6 +21,5 @@ public class ControlePaneelNoord extends HBox {
         setAlignment(Pos.CENTER);
         this.setSpacing(10);
         this.getChildren().addAll(labelBereikX,bereikXveld, labelBereikY, bereikYveld);
-
     }
 }
