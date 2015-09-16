@@ -13,7 +13,7 @@ public class ValBewegingPaneel extends HBox {
     private ValBewegingApp valBewegingApp;
 
     public ValBewegingPaneel(ValBewegingApp valBewegingApp, ControlePaneelNoord noordpaneel) {
-        Bal bal = new Bal(-20, -20, 11);
+        Bal bal = new Bal(-300, -300, 300);
         this.valBewegingApp = valBewegingApp;
         Canvas canvas = new Canvas(500, 500);
         GraphicsContext gc = canvas.getGraphicsContext2D();

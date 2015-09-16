@@ -27,8 +27,8 @@ public class Bal {
 
     public void reset() {
         t = 0;
-        x = 10;
-        y = 0;
+        x = 110;
+        y = 40;
         vy = 0;
     }
 
