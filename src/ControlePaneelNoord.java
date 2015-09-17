@@ -18,6 +18,7 @@ public class ControlePaneelNoord extends HBox {
     
 
     public ControlePaneelNoord() {
+    	//constructor van het noordpaneel
         this.labelBereikX = new Label("Bereik x:");
         this.labelBereikY = new Label("Bereik y:");
         this.labelDeltaTijd = new Label("Delta Tijd");
@@ -28,7 +29,7 @@ public class ControlePaneelNoord extends HBox {
         this.setSpacing(10);
         this.getChildren().addAll(labelBereikX,bereikXveld, labelBereikY, bereikYveld, labelDeltaTijd, deltaTijdveld);
     }
-
+    //getters
     public double getYbereik()
     {
         return Double.parseDouble(this.bereikYveld.getText());

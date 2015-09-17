@@ -12,14 +12,15 @@ public class BalView extends Pane {
     private DataView dataView;
 
     public BalView(Bal bal, ValBewegingPaneel vp, ControlePaneelNoord np)
+    //constructor van balview
     {
         this.bal = bal;
         createCircle(this.bal);
-        //this.setVisible(false); ?? staat in voorbeeld?
         getChildren().add(this.rondje);
     }
 
     private void  createCircle(Bal bal)
+    //maak een circle met de waardes van bal
     {
         this.rondje = new Circle(this.bal.getX(), this.bal.getY(), 12);
         this.rondje.setFill(this.bal.getKleur());
@@ -27,6 +28,7 @@ public class BalView extends Pane {
     }
 
     public void adjustBal()
+    //update commando van de view, zorgt ervoor dat het rondje wordt geupdate
     {
         this.rondje.setCenterX(this.bal.getX());
         this.rondje.setCenterY(this.bal.getY());

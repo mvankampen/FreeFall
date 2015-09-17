@@ -29,8 +29,9 @@ public class ValBewegingPaneel extends HBox {
     }
 
     private void drawShapes(GraphicsContext gc) {
-        startX = 500 / PARTS;   // in pixels
-        startY = 500 / PARTS;  //
+    	//teken het grid
+        startX = 500 / PARTS;   // Om te zien hoeveel ruimte elk "deel" nodig heeft
+        startY = 500 / PARTS;  
         eindX = (PARTS - 1) * startX;  //
         eindY = (PARTS - 1) * startY;  //
         gc.setStroke(Color.BLUE);
