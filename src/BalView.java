@@ -2,8 +2,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-import javax.swing.*;
-
 public class BalView extends Pane {
     private Bal bal;
     private Circle rondje;

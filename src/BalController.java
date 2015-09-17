@@ -1,30 +1,26 @@
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.EventHandler;
+import javafx.scene.input.ScrollEvent;
 import javafx.util.Duration;
 
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-
-public class BalController implements Runnable, MouseWheelListener {
+public class BalController implements Runnable{
 
     private Bal bal;
     private BalView balView;
-    private ValBewegingPaneel valBewegingPaneel;
     private ControlePaneelNoord noordpaneel;
     private Timeline animation;
     private boolean doorgaan_thread = true;
-    private boolean doorgaan_wheel;
     private double dt;
     private double valhoogte;
     private Thread draad;
-    private int ms;
+
 
     public BalController(Bal bal, BalView balview, ValBewegingPaneel valBewegingPaneel,
         ControlePaneelNoord noordpaneel) {
     	//constructor van balcontroller
         this.bal = bal;
         this.balView = balview;
-        this.valBewegingPaneel = valBewegingPaneel;
         this.noordpaneel = noordpaneel;
     }
 
@@ -34,12 +30,11 @@ public class BalController implements Runnable, MouseWheelListener {
      * @param e
      * @see MouseWheelEvent
      */
-    @Override public void mouseWheelMoved(MouseWheelEvent e) {
-
-    }
+   
 
    
-    @Override public void run() {
+    @SuppressWarnings({ "deprecation", "static-access" })
+	@Override public void run() {
     	//runnable voor de thread draad. Wordt gebruikt om de y as 
     	//positie te monitoren en zet de animatie stop zodra de y as over de gezete y waarde in noordpane is (default 100)
         while (doorgaan_thread) {
@@ -59,6 +54,20 @@ public class BalController implements Runnable, MouseWheelListener {
             }
         }
     } 
+    public EventHandler<ScrollEvent> getOnScrollEventHandler() 
+    {
+    	System.out.println("hey");
+        return onScrollEventHandler;
+        
+    }
+    private EventHandler<ScrollEvent> onScrollEventHandler = new EventHandler<ScrollEvent>() {
+    	 @Override
+         public void handle(ScrollEvent event) { 
+    		 bal.setY(bal.getY()+1);
+    		 event.consume();
+    	 }
+    	 
+    };
 
     public void pleaseStart() {
     	//start functie gelinkt aan de animatie button

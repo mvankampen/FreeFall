@@ -7,7 +7,6 @@ import javafx.scene.layout.HBox;
  * Created by Michael on 16-09-15.
  */
 public class ControlePaneelNoord extends HBox {
-    private BalController balController;
     private Label labelBereikX;
     private Label labelBereikY;
     private Label labelDeltaTijd;

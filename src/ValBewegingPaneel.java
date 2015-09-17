@@ -3,9 +3,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-
 public class ValBewegingPaneel extends HBox {
     private int startX, startY;
     private int eindX, eindY;
@@ -14,6 +11,7 @@ public class ValBewegingPaneel extends HBox {
 
     public ValBewegingPaneel(ValBewegingApp valBewegingApp, ControlePaneelNoord noordpaneel) {
         Bal bal = new Bal(0, 0, 300);
+        
         this.valBewegingApp = valBewegingApp;
         Canvas canvas = new Canvas(500, 500);
         GraphicsContext gc = canvas.getGraphicsContext2D();

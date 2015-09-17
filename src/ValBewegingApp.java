@@ -1,13 +1,10 @@
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class ValBewegingApp extends Application {
     public BorderPane pane = new BorderPane();
-	public StackPane root = new StackPane();
 
     /**
      * The main entry point for all JavaFX applications.
