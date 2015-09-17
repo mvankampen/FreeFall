@@ -15,7 +15,7 @@ public class BalController implements Runnable, MouseWheelListener {
     private Timeline animation;
     private boolean doorgaan_thread = true;
     private boolean doorgaan_wheel;
-    private int dt;
+    private double dt;
     private double valhoogte;
     private Thread draad;
     private int ms;
@@ -26,7 +26,6 @@ public class BalController implements Runnable, MouseWheelListener {
         this.balView = balview;
         this.valBewegingPaneel = valBewegingPaneel;
         this.noordpaneel = noordpaneel;
-        this.dt = noordpaneel.getDt();
         this.animation = new Timeline(new KeyFrame(Duration.millis(100)));
 
     }
@@ -58,7 +57,7 @@ public class BalController implements Runnable, MouseWheelListener {
             if(this.bal.getY() < valhoogte) {
             	System.out.println("waiting");
                 try {
-					draad.sleep(dt);
+					draad.sleep(20);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -74,11 +73,12 @@ public class BalController implements Runnable, MouseWheelListener {
 
     public void pleaseStart() {
         this.bal.reset();
+        this.dt = this.noordpaneel.getDt();
         this.valhoogte = this.noordpaneel.getYbereik();
     	animation = new Timeline();
         animation.setCycleCount(Timeline.INDEFINITE);
-        final KeyFrame kf = new KeyFrame(Duration.millis(dt), e -> this.balView.adjustBal());
-        final KeyFrame kf2 = new KeyFrame(Duration.millis(dt), e -> this.bal.adjust(dt));
+        final KeyFrame kf = new KeyFrame(Duration.millis(this.dt), e -> this.bal.adjust(this.dt));
+        final KeyFrame kf2 = new KeyFrame(Duration.millis(this.dt), e -> this.balView.adjustBal());
         animation.getKeyFrames().addAll(kf,kf2);
         animation.play();
        System.out.println("Soap");
@@ -94,13 +94,5 @@ public class BalController implements Runnable, MouseWheelListener {
     	this.noordpaneel.setDisable(false);
         this.animation.stop();
         draad.stop();
-    }
-
-    private void slaap(int msec) {
-        try {
-            Thread.sleep(msec);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }

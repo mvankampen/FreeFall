@@ -20,7 +20,7 @@ public class Bal {
     }
 
     public void adjust(double dt) {
-    	dt = 0.020;
+    	dt = dt * 0.001;
         t = t + dt;
         System.out.println("De t waarde in adjust is " + t);
         System.out.println("De y waarde in adjust voor modificatie is " + y);

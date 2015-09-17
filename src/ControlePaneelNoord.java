@@ -10,17 +10,23 @@ public class ControlePaneelNoord extends HBox {
     private BalController balController;
     private Label labelBereikX;
     private Label labelBereikY;
+    private Label labelDeltaTijd;
     private TextField bereikXveld;
     private TextField bereikYveld;
+    private TextField deltaTijdveld;
+    
+    
 
     public ControlePaneelNoord() {
         this.labelBereikX = new Label("Bereik x:");
         this.labelBereikY = new Label("Bereik y:");
+        this.labelDeltaTijd = new Label("Delta Tijd");
         this.bereikXveld = new TextField("100");
         this.bereikYveld = new TextField("100");
+        this.deltaTijdveld = new TextField("20");
         setAlignment(Pos.CENTER);
         this.setSpacing(10);
-        this.getChildren().addAll(labelBereikX,bereikXveld, labelBereikY, bereikYveld);
+        this.getChildren().addAll(labelBereikX,bereikXveld, labelBereikY, bereikYveld, labelDeltaTijd, deltaTijdveld);
     }
 
     public double getYbereik()
@@ -34,8 +40,8 @@ public class ControlePaneelNoord extends HBox {
     }
 
 
-    public int getDt()
+    public double getDt()
     {
-        return 20;
+        return Double.parseDouble(this.deltaTijdveld.getText());
     }
 }
