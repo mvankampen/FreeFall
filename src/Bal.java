@@ -5,7 +5,7 @@ public class Bal {
     private double y;
 
     private double vy;
-    private int t;
+    private double t;
 
     private Color kleur;
     
@@ -19,16 +19,24 @@ public class Bal {
         reset();
     }
 
-    public void adjust(int dt) {
+    public void adjust(double dt) {
+    	dt = 0.020;
         t = t + dt;
-        y = 1/2 * this.VALVERSNELLING * t * t;
-        vy = this.VALVERSNELLING * t;
+        System.out.println("De t waarde in adjust is " + t);
+        System.out.println("De y waarde in adjust voor modificatie is " + y);
+        float a = 1;
+        float b = 2;
+        float n = a/b;
+        System.out.println("dit is de waarde van n" + n);
+        y = n * VALVERSNELLING * t * t;
+        vy = VALVERSNELLING * t;
+        System.out.println("De y waarde in 'adjust' is " + y );
     }
 
     public void reset() {
         t = 0;
         x = 110;
-        y = 40;
+        y = 0;
         vy = 0;
     }
 
@@ -44,7 +52,7 @@ public class Bal {
         return vy;
     }
 
-    public int getT() {
+    public double getT() {
         return t;
     }
 

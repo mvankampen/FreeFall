@@ -18,6 +18,7 @@ public class BalController implements Runnable, MouseWheelListener {
     private int dt;
     private double valhoogte;
     private Thread draad;
+    private int ms;
 
     public BalController(Bal bal, BalView balview, ValBewegingPaneel valBewegingPaneel,
         ControlePaneelNoord noordpaneel) {
@@ -25,9 +26,7 @@ public class BalController implements Runnable, MouseWheelListener {
         this.balView = balview;
         this.valBewegingPaneel = valBewegingPaneel;
         this.noordpaneel = noordpaneel;
-        this.dt = this.noordpaneel.getDt();
-        this.valhoogte = this.noordpaneel.getYbereik();
-
+        this.dt = noordpaneel.getDt();
         this.animation = new Timeline(new KeyFrame(Duration.millis(100)));
 
     }
@@ -56,29 +55,45 @@ public class BalController implements Runnable, MouseWheelListener {
     @Override public void run() {
 
         while (doorgaan_thread) {
-            if(this.bal.getY() != (this.valhoogte + 40)) {
-                this.bal.adjust(dt);
-                this.balView.adjustBal();
+            if(this.bal.getY() < valhoogte) {
+            	System.out.println("waiting");
+                try {
+					draad.sleep(dt);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            }
+            else{
+            	System.out.println("READDDDDDYYYYYYY");
+            	this.animation.stop();
+            	draad.stop();
             }
         }
-    }
+    } 
 
     public void pleaseStart() {
-
-        System.out.println("Soap");
-        /*if (draad != null) {
-            return;
-        }*/
-
+        this.bal.reset();
+        this.valhoogte = this.noordpaneel.getYbereik();
+    	animation = new Timeline();
+        animation.setCycleCount(Timeline.INDEFINITE);
+        final KeyFrame kf = new KeyFrame(Duration.millis(dt), e -> this.balView.adjustBal());
+        final KeyFrame kf2 = new KeyFrame(Duration.millis(dt), e -> this.bal.adjust(dt));
+        animation.getKeyFrames().addAll(kf,kf2);
+        animation.play();
+       System.out.println("Soap");
         this.noordpaneel.setDisable(true);
         draad = new Thread(this);
-        animation.play();
-        draad.start();
+        draad.setDaemon(true);
+        draad.start(); 
 
     }
 
-    public void pleaseStop() {
-        this.noordpaneel.setDisable(false);
+    @SuppressWarnings("deprecation")
+	public void pleaseStop() {
+    	this.noordpaneel.setDisable(false);
+        this.animation.stop();
+        draad.stop();
     }
 
     private void slaap(int msec) {
