@@ -4,7 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
 /**
- * Created by dennis on 10-09-15.
+ * Created by Michael on 10-09-15.
  */
 public class ControlePaneelZuid extends HBox {
     private BalController balController;

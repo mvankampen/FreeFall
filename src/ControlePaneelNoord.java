@@ -4,7 +4,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 /**
- * Created by dennis on 16-09-15.
+ * Created by Michael on 16-09-15.
  */
 public class ControlePaneelNoord extends HBox {
     private BalController balController;
